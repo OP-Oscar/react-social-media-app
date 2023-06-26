@@ -9,20 +9,23 @@ const Auth = () => {
     
    const authCtx = useContext(AuthContext)
 
-
    const submitHandler = e => {
        e.preventDefault()
 
-       const url = 'https://socialmtn.devmountain.com'
+    //    setDisplay('none')
 
        const body = {
         username,
         password
        }
+    //    const url = 'https://socialmtn.devmountain.com'
+        const url = 'http://localhost:5050'
+
+
   
         axios.post(register ? `${url}/register` : `${url}/login`, body).then( ({data}) => {
             console.log(`Submit handler in Auth.js actioned`, data)
-            authCtx.login(data.token, data.expiration, data.userId)
+            authCtx.login(data.token, data.exp, data.userId)
         }).catch( (err) => {
             console.log(`error message from submit handler`, err.message)
             setPassword('')
@@ -55,3 +58,4 @@ const Auth = () => {
 }
  
 export default Auth
+

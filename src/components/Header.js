@@ -20,7 +20,7 @@ const Header = () => {
             </div>
             <nav>
             {authCtx.token ? 
-                <ul className='main-nav'>
+                (<ul className='main-nav'>
                     <li>
                         <NavLink style={styleActiveLink} to='/'>Home</NavLink>
                     </li>
@@ -34,17 +34,17 @@ const Header = () => {
                     <li>
                         <button className='logout-btn' onClick={() => authCtx.logout()}>Logout</button>
                     </li>
-                </ul>
+                </ul>)
                 :
-                <ul className='main-nav'>
+                (<ul className='main-nav'>
                     <li>
                         <NavLink style={styleActiveLink} to='/'>Home</NavLink>
                     </li>
 
                     <li>
-                        <NavLink style={styleActiveLink} to='auth'>Login or Register</NavLink>
+                        <NavLink style={styleActiveLink} to='/auth'>Login or Register</NavLink>
                     </li>
-                </ul>
+                </ul>)
                 
             }
             </nav>
@@ -53,3 +53,4 @@ const Header = () => {
 }
 
 export default Header
+
