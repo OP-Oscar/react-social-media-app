@@ -24,7 +24,7 @@ const Form = () => {
             }
         })
             .then(() => {
-                navigate('/profile')
+                navigate('http://localhost:5050/profile')
             })
             .catch(err => console.log(err))
     }
